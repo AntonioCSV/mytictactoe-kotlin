@@ -3,9 +3,10 @@ package com.example.mytictactoe
 class MyTicTacToe {
     private lateinit var board: Array<Array<TicTacToePlayer>>
     private lateinit var history: TicTacToeHistory
+    private var _currentPlayer: TicTacToePlayer = TicTacToePlayer.NONE
     var currentPlayer: TicTacToePlayer
-        get() = currentPlayer
-        private set(value) { currentPlayer = value }
+        get() = _currentPlayer
+        private set(value) { _currentPlayer = value }
 
     var nextPlayer: TicTacToePlayer = TicTacToePlayer.PLAYER_ONE
         get() {
@@ -25,7 +26,9 @@ class MyTicTacToe {
         if(board[row-1][column-1] != TicTacToePlayer.NONE) {
             return false;
         }
-                history.pushMove(currentPlayer, row, column)
+
+        board[row-1][column-1] = currentPlayer
+        history.pushMove(currentPlayer, row, column)
         currentPlayer = nextPlayer
         return true;
     }
@@ -40,6 +43,9 @@ class MyTicTacToe {
 
     fun getPlayerByPosition(row: Int, column: Int): TicTacToePlayer {
         return board[row-1][column-1]
+    }
+    private fun initializeBoard() {
+        board = Array(3) { Array<TicTacToePlayer>(3) { TicTacToePlayer.NONE } }
     }
 
     private fun checkFullBoard(): Boolean {
@@ -90,7 +96,5 @@ class MyTicTacToe {
         }
     }
 
-    private fun initializeBoard() {
-        board = Array(3) { Array<TicTacToePlayer>(3) { TicTacToePlayer.NONE } }
-    }
+
 }

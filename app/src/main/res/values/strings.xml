@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MyTicTacToe</string>
+    <string name="movement_was_not_made">Movement was not made</string>
+    <string name="movement_was_not_made_its_xptoplayer_turn">Movement was not made. It\'s %s turn</string>
+    <string name="its_xptoplayer_turn">It\'s %s turn</string>
+    <string name="xptoplayer_won">%s just won the game!!!</string>
+    <string name="game_over_nobody_won">Game over, nobody won. :c</string>
+    <string name="play_again">Play again</string>
 </resources>
