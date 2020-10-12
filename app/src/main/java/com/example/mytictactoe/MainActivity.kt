@@ -11,6 +11,5 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val myTicTacToe: MyTicTacToe = MyTicTacToe()
         myTicTacToe.initializeGame()
-        val binding = DataBindingUtil.setContentView<ActivityMainBinding>()
     }
 }
